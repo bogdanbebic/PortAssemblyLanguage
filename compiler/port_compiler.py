@@ -13,6 +13,7 @@ class PortCompiler:
         self.label_code_line_pair = dict()
         self.code = []
         self.instruction_src_code_line = []
+        self.build_error = False
         pass
 
     def read_src_code(self):
@@ -32,24 +33,31 @@ class PortCompiler:
                     self.preprocessed.append(instruction.group(2) + " " + instruction.group(3))
                     self.instruction_src_code_line.append(i + 1)
                     if instruction.group(1):
-                        if instruction.group(2):
-                            self.label_code_line_pair[instruction.group(1).strip(':')] = len(self.preprocessed) - 1
-                        else:
-                            raise(port_exceptions.BuildError("BuildError-line{}: {}".format(i + 1, line)))
+                        self.label_code_line_pair[instruction.group(1).strip(':')] = len(self.preprocessed) - 1
+                elif not re.fullmatch(port_re.only_whitespace, code_line.group(1)):
+                    raise(port_exceptions.BuildError("BuildError-line{}: {}".format(i + 1, line)))
             except port_exceptions.BuildError as build_error:
                 print(build_error)
-                exit()
+                self.build_error = True
         pass
 
     def compile(self):
         for i, line in enumerate(self.preprocessed):
             try:
+                instruction =  re.fullmatch(port_re.instruction, line)
+                if instruction.group(2) in port_inst.keyword_to_obj:
+                    pass
+                else:
+                    raise(port_exceptions.BuildError("BuildError-illegal keyword-line{}: {}".format(self.instruction_src_code_line[i], \
+                    self.src_code[self.instruction_src_code_line[i] - 1])))
                 # TODO: decode instruction and operands
                 # print("line {}: {} {}{}".format(i, instruction.group(1), instruction.group(2), instruction.group(3)))
                 pass
             except port_exceptions.BuildError as build_error:
                 print(build_error)
-                exit()
+                self.build_error = True
+        if self.build_error:
+            exit()
         pass
 
 
