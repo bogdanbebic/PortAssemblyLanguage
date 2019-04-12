@@ -12,6 +12,20 @@ keyword_to_obj = {
     "beq" : 10
 }
 
+keyword_args_cnt = {
+    "halt" : 0,
+    "add" : 3,
+    "sub" : 3,
+    "load" : 1,
+    "store" : 1,
+    "push" : 0,
+    "pop" : 0,
+    "call" : 1,
+    "ret" : 0,
+    "bgt" : 3,
+    "beq" : 3
+}
+
 addr_to_obj = {
     "reg" : 0,
     "regind" : 1,

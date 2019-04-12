@@ -16,3 +16,8 @@ non_instruction = r'^\s*(;.*)?$'
 
 # \1 is optional label, \2 is keyword, \3 is the rest of line
 instruction = r'^\s*([_a-zA-Z]\w*:)?\s*([_a-zA-Z]+)([^:]*)$'
+
+# \1 is arg1, \2 is first separator
+# \3 is arg2, \4 is second separator
+# \5 is arg3
+args = r'\s*([^\s,]*)\s*(,)?\s*([^\s,]*)\s*(,)?\s*([^\s,]*)\s*'

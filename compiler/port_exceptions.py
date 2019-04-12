@@ -17,3 +17,6 @@ class BuildError(PortException):
 
     def __init__(self, msg):
         super(BuildError, self).__init__(msg)
+
+def raise_build_error(type_of_error, line_index, src_code_line):
+    raise(BuildError("BuildError-" + type_of_error + "-line{}: {}".format(line_index, src_code_line)))
