@@ -28,8 +28,8 @@ Every other whitespace is ignored.
 Following is a list of instructions (keywords along with their operands):
 * <code><b>add</b> dest, src1, src2</code>
 * <code><b>sub</b> dest, src1, src2</code>
-* <code><b>load</b> dest, src</code>
-* <code><b>store</b> dest, src</code>
+* <code><b>load</b> src</code>
+* <code><b>store</b> dest</code>
 * <code><b>push</b></code>
 * <code><b>pop</b></code>
 * <code><b>call</b> label</code>
