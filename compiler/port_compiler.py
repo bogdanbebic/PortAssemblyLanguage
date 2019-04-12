@@ -4,8 +4,6 @@ import port_instructions as port_inst
 import port_exceptions
 import port_coded_instruction as port_obj
 
-src_path = "test.port"  # TODO: take the file as an argument
-
 class PortCompiler:
     def __init__(self, src_path):
         self.src_path = src_path
@@ -63,7 +61,7 @@ class PortCompiler:
                         port_exceptions.raise_build_error("generic error", \
                             self.instruction_src_code_line[i], \
                             self.src_code[self.instruction_src_code_line[i] - 1])
-                        
+
                     if successfully_coded:
                         self.coded_instructions.append(temp_coded_instruction)
                     else:
@@ -74,7 +72,7 @@ class PortCompiler:
                     port_exceptions.raise_build_error("illegal keyword", \
                             self.instruction_src_code_line[i], \
                             self.src_code[self.instruction_src_code_line[i] - 1])
-                
+
                 # print("line {}: {} {}{}".format(i, instruction.group(1), instruction.group(2), instruction.group(3)))
                 pass
             except port_exceptions.BuildError as build_error:
@@ -86,14 +84,15 @@ class PortCompiler:
 
 
 def main():
+    src_path = "test.port"  # TODO: take the file as an argument
+    out_file_path = "test.mif"
     port_compiler = PortCompiler(src_path)
     port_compiler.read_src_code()
-    # print(port_compiler.src_code)
     port_compiler.preprocess()
-    #print(port_compiler.preprocessed)
-    #print(port_compiler.instruction_src_code_line)
-    #print(port_compiler.label_code_line_pair)
     port_compiler.compile()
+    #print(port_compiler.preprocessed)
+    #print(port_compiler.label_code_line_pair)
+    #port_obj.compile_to_mif(out_file_path, [port_obj.CodedInstruction() for _ in range(15)])
     pass
 
 if __name__ == '__main__':
