@@ -78,9 +78,9 @@ class PortCompiler:
                 instruction =  re.fullmatch(port_re.instruction, line)
                 keyword = instruction.group(2)
                 args_string = instruction.group(3)
-                temp_coded_instruction = port_obj.CodedInstruction(port_inst.keyword_to_obj[keyword])
                 successfully_coded = False
                 if keyword in port_inst.keyword_to_obj:
+                    temp_coded_instruction = port_obj.CodedInstruction(port_inst.keyword_to_obj[keyword])
                     args_match = re.fullmatch(port_re.args, args_string)
                     if args_match:
                         no_args = not args_match.group(2) and not args_match.group(4) \
