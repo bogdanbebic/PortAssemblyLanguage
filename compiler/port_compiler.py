@@ -60,6 +60,8 @@ class PortCompiler:
             elif reg_ind.group(1) in port_inst.regs_to_obj: # aliased regdir
                 arg = port_inst.regs_to_obj[reg_ind.group(1)]
                 addr = port_inst.addr_to_obj["regind"]
+            else:
+                port_exceptions.raise_build_error("illegal operand", index_of_src_code, line_of_src_code)
         elif mem_dir:
             arg = port_inst.mem_location_out_of_bounds(int(mem_dir.group(1)), index_of_src_code, line_of_src_code)
             addr = port_inst.addr_to_obj["memdir"]

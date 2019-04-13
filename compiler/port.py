@@ -4,7 +4,7 @@ import port_coded_instruction
 
 import re
 
-file_name = r'(.*)\.'
+file_name = r'(.*)\..*'
 
 parser = argparse.ArgumentParser(description='Translates port assembly to port processor mif format')
 parser.add_argument("assembly_file", help="The input port assembly file to translate")
@@ -24,7 +24,7 @@ def main():
     port_c.read_src_code()
     port_c.preprocess()
     port_c.compile()
-    port_coded_instruction.port_obj.compile_to_mif(out_file_path, port_c.coded_instructions)
+    port_coded_instruction.compile_to_mif(out_file_path, port_c.coded_instructions)
     pass
 
 if __name__ == '__main__':

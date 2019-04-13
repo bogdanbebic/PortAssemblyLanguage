@@ -56,10 +56,10 @@ def mem_location_out_of_bounds(mem_location_index : int, index_of_src_code : int
 
 def reg_index_out_of_bounds(reg_index : int, index_of_src_code : int, line_of_src_code : str):
     if not (0 <= reg_index and reg_index <= num_of_regs):
-        port_exceptions.raise_build_error("illegal mem location", index_of_src_code, line_of_src_code)
+        port_exceptions.raise_build_error("illegal register index", index_of_src_code, line_of_src_code)
     return reg_index
 
 def number_out_of_bounds(constant : int, index_of_src_code : int, line_of_src_code : str):
     if not (min_number <= constant and constant <= max_number):
-        port_exceptions.raise_build_error("illegal mem location", index_of_src_code, line_of_src_code)
+        port_exceptions.raise_build_error("constant out of bounds", index_of_src_code, line_of_src_code)
     return constant
