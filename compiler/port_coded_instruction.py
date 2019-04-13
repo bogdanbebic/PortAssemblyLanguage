@@ -1,8 +1,10 @@
+import port_instructions
+
 class CodedInstruction(object):
     """Represents an instruction coded to
     memory of a port processor"""
 
-    mem_depth = 1024
+    mem_depth = port_instructions.num_of_mem_locations
     mem_width = 64  # 8 bits in byte * 8 bytes instruction length
     address_radix = "DEC"
     data_radix = "HEX"
@@ -19,8 +21,11 @@ class CodedInstruction(object):
         pass
 
     def convert_to_hex_str(self):
-        # TODO: [opcode, addr1, addr2, addr3, arg1, arg2, arg3] to HEX
-        return "0000000000000000"
+        # [opcode, addr1, addr2, addr3, arg1, arg2, arg3] to HEX
+        return hex(self.opcode)[2:].upper() + hex(self.addr1)[2:].upper() \
+            + hex(self.addr2)[2:].upper() + hex(self.addr3)[2:].upper() \
+            + hex(self.arg1)[2:].upper().zfill(4) + hex(self.arg2)[2:].upper().zfill(4) \
+            + hex(self.arg3)[2:].upper().zfill(4)
 
 def compile_to_mif(out_file_path : str, coded_instructions : list):
     """Takes out_file_name and coded_instructions list of coded_instructions

@@ -21,3 +21,11 @@ instruction = r'^\s*([_a-zA-Z]\w*:)?\s*([_a-zA-Z]+)([^:]*)$'
 # \3 is arg2, \4 is second separator
 # \5 is arg3
 args = r'\s*([^\s,]*)\s*(,)?\s*([^\s,]*)\s*(,)?\s*([^\s,]*)\s*'
+
+reg_dir = r'r(\d+)'
+
+reg_ind = r'i([^m].*)'
+
+mem_dir = r'm(\d+)'
+
+immediate = r'(\d+)'
