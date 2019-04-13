@@ -23,7 +23,7 @@ Instructions do not contain colon (`:`) characters.
 
 Every other whitespace is ignored.
 
-### Instructions
+### Instruction set
 
 Following is a list of instructions (keywords along with their operands):
 * <code><b>add</b> dest, src1, src2</code>
@@ -37,6 +37,23 @@ Following is a list of instructions (keywords along with their operands):
 * <code><b>bgt</b> src1, src2, label</code>
 * <code><b>beq</b> src1, src2, label</code>
 * <code><b>halt</b></code>
+
+### Addressing modes
+
+Following is a list of available addressing modes:
+* <b>regdir:</b><code> <b>r</b>x </code> where x is from 0 to 31 or specific names:
+  * <code><b>pc</b></code> alias for r31, 
+  * <code><b>sp</b></code> alias for r30,
+  * <code><b>pc</b></code> alias for r29,
+  * <code><b>pc</b></code> alias for r28.
+* <b>regind:</b><code> <b>ir</b>x </code> where x is from 0 to 31 or specific names:
+  * <code><b>ipc</b></code> alias for r31, 
+  * <code><b>isp</b></code> alias for r30,
+  * <code><b>ipc</b></code> alias for r29,
+  * <code><b>ipc</b></code> alias for r28.
+* <b>memdir:</b><code> <b>m</b>address </code> where address is from 0 to 1023.
+* <b>immediate:</b><code> constant </code> where constant is from 0 to 65536 (2^16)
+
 
 Keywords are given in **bold**.
 
