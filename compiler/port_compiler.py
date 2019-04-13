@@ -170,18 +170,3 @@ class PortCompiler:
             exit()
         pass
 
-
-def main():
-    src_path = "test.port"  # TODO: take the file as an argument
-    out_file_path = "test.mif"
-    port_compiler = PortCompiler(src_path)
-    port_compiler.read_src_code()
-    port_compiler.preprocess()
-    port_compiler.compile()
-    #print(port_compiler.preprocessed)
-    #print(port_compiler.label_code_line_pair)
-    port_obj.compile_to_mif(out_file_path, port_compiler.coded_instructions)
-    pass
-
-if __name__ == '__main__':
-    main()
