@@ -24,6 +24,9 @@ There are 32 registers in the processor - `r0` to `r31`.
 * `r29` is used as the `ax` (accumulator).  
 * `r28` is used as the `bx` (backup register).  
 
+The port processor implemets the [instructions](https://github.com/bogdanbebic/PortAssemblyLanguage#instruction-set) and supports the
+[addressing modes](https://github.com/bogdanbebic/PortAssemblyLanguage#addressing-modes) defined by the port assembly language.
+
 Following is a list of instruction to hex value mapping (keywords):  
 * <code><b>add</b></code> to 1  
 * <code><b>sub</b></code> to 2  
