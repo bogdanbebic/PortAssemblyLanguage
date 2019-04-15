@@ -1,5 +1,6 @@
 # PortAssemblyLanguage
-Definition of an assembly like language and an implementation of a translation program from port to mifi format
+Definition of an assembly like language and an implementation of a translation program from port to mifi format,
+designed to work on the [port processor](https://github.com/bogdanbebic/PortAssemblyLanguage/blob/master/compiler/README.md).
 
 ## Port assembly language definition
 
