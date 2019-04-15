@@ -26,17 +26,38 @@ Every other whitespace is ignored.
 ### Instruction set
 
 Following is a list of instructions (keywords along with their operands):
-* <code><b>add</b> dest, src1, src2</code>
-* <code><b>sub</b> dest, src1, src2</code>
-* <code><b>load</b> src</code>
-* <code><b>store</b> dest</code>
-* <code><b>push</b></code>
-* <code><b>pop</b></code>
-* <code><b>call</b> label</code>
-* <code><b>ret</b></code>
-* <code><b>bgt</b> src1, src2, label</code>
-* <code><b>beq</b> src1, src2, label</code>
-* <code><b>halt</b></code>
+* <code><b>add</b> dest, src1, src2</code>  
+Adds numbers from `src1` and `src2` and stores them in `dest`.  
+
+* <code><b>sub</b> dest, src1, src2</code>  
+Subtracts numbers `src1` and `src2` and stores them in `dest`.  
+
+* <code><b>load</b> src</code>  
+Loads number from `src` and stores it in `ax`.  
+
+* <code><b>store</b> dest</code>  
+Stores number from `ax` to location `dest`.  
+
+* <code><b>push</b></code>  
+Pushes the contents of `ax` to the stack.  
+
+* <code><b>pop</b></code>  
+Pops a number from the stack and stores it in `ax`.  
+
+* <code><b>call</b> label</code>  
+Gets the number given by `label` and stores it in the `pc`, old `pc` is pushed to the stack.  
+
+* <code><b>ret</b></code>  
+Resstores the old `pc` from the stack.  
+
+* <code><b>bgt</b> src1, src2, label</code>  
+Branches control of the program to `label` if `src1` is greater than `src2`.  
+
+* <code><b>beq</b> src1, src2, label</code>  
+Branches control of the program to `label` if `src1` is equal to `src2`.  
+
+* <code><b>halt</b></code>  
+Halts the execution of the program.  
 
 ### Addressing modes
 
